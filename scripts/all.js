@@ -8,12 +8,15 @@
 void function(global){
 	var mapping = {}, cache = {};
 	global.startModule = function(m){
+		debugger
 		require(m).start();
 	};
 	global.define = function(id, func){
+		debugger
 		mapping[id] = func;
 	};
 	global.require = function(id){
+		debugger
 		if(!/\.js$/.test(id))
 			id += '.js';
 		if(cache[id])
@@ -22,7 +25,7 @@ void function(global){
 			return cache[id] = mapping[id]({});
 	};
 }(this);
-
+debugger
 /**
  * @source D:\hosting\demos\fruit-ninja\output\scripts\collide.js
  */ 
